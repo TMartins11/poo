@@ -2,24 +2,45 @@ package org.example;
 
 import org.example.encapsulamento.versao3.Veiculo;
 
+import java.util.Scanner;
+
 public class TesteVeiculo3{
     public static void main(String[] args) {
-        Veiculo veiculo = new Veiculo(10000.0);
 
-        System.out.println("Criando um veículo com carga máxima de: " + veiculo.getCargaMaxima());
+        Scanner leitorTeclado = new Scanner(System.in);
 
-        System.out.println("Adicionando caixa número 1 (500kg): " + veiculo.adicionarCaixa(500.0));
+        double pesoCaixa;
+        double pesoTotal;
+        char resposta = 0;
 
+        System.out.println("Insira a carga máxima do veículo: ");
+        pesoTotal = leitorTeclado.nextDouble();
 
-        System.out.println("Adicionando caixa número 2 (250kg): " + veiculo.adicionarCaixa(250.0));
+        Veiculo veiculo = new Veiculo(pesoTotal);
 
-        System.out.println("Adicionando caixa número 3 (5000kg): " + veiculo.adicionarCaixa(5000.0));
+        System.out.println("Criando veículo com carga máxima de:  " + veiculo.getCargaMaxima() + "kg.");
 
-        System.out.println("Adicionando caixa número 4 (4000kg): " + veiculo.adicionarCaixa(4000.0));
+        do{
+            System.out.println("Você deseja adicionar uma nova caixa? (S - SIM) , (N - NÃO): ");
 
-        System.out.println("Adicionando caixa número 5 (300kg): " + veiculo.adicionarCaixa(300.0));
+            resposta = (char) leitorTeclado.next().trim().charAt(0);
+            if(resposta == 'N'){
+                break;
+            }
 
-        System.out.println("A carga do veículo é: " + veiculo.getCarga());
+            System.out.println("Informe o peso da caixa a ser adicionada (kg):  ");
+            pesoCaixa = leitorTeclado.nextDouble();
+            if(pesoCaixa > 0.0) {
+                if (veiculo.adicionarCaixa(pesoCaixa)) {
+                    System.out.println("Adicionando caixa com peso: " + pesoCaixa + "kg.");
+                } else {
+                    System.out.println("O veículo não pode receber essa caixa, pois ultrapassaria sua capacidade máxima!");
+                }
+            }else{
+                System.out.println("É impossível que uma caixa não possua nenhum peso!");
+            }
+        }while(resposta != 'N');
 
+        System.out.println("A carga total do veículo é: " + veiculo.getCarga() + "kg.");
     }
 }
