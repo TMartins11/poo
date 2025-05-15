@@ -48,3 +48,18 @@ _____________________________________________________________________________
 
  Classe System pertence ao pacote java.lang que é importado por default.
 
+ É recomendado que classes sejam encapsuladas em pacotes, afim de promover a organização e reuso de objetos.
+ Visto que é impossível reutilizar classes criadas direto no src do projeto.
+
+ Pacotes são estruturas hierarquicas, as regras de nomenclatura consistem em letras minúsculas, utilizando pontos para separar hierarquicamente
+ cada pacote.
+
+ Exemplo: br.com.vascodagama.projetos.planejamento
+
+ Os 3 cenários básicos para reuso de classes:
+    1- Reuso de objetos dentro de um mesmo projeto.
+    2- Reuso de classes da api do java SE (Classes fornecidas pelo JRE).
+    3- Reuso de classes de terceiros. (incorporadas como dependências no pom.xml do maven. Ex.: Lombok.
+
+
+

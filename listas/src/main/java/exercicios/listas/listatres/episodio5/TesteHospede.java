@@ -1,4 +1,4 @@
-package exercicios.listas.listatres.episodio4;
+package exercicios.listas.listatres.episodio5;
 
 // import java.util.*;  Indica ao compilador o local de todas as classes do pacote java.util
 
@@ -6,7 +6,8 @@ package exercicios.listas.listatres.episodio4;
 
 // import java.lang.*; Importada por padrão, classe System.
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
 
 // Importar classes específicas em questão de perfomance, mas como indica somente o local onde procurar, não tem perda significativa.
 
